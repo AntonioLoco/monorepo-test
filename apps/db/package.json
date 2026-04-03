@@ -9,6 +9,7 @@
     "dist"
   ],
   "scripts": {
+    "prepare": "pnpm run build",
     "build": "tsc -p tsconfig.build.json",
     "format": "oxfmt --write",
     "format:check": "oxfmt --check",

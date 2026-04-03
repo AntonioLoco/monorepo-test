@@ -23,7 +23,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          set -eux
           pnpm install --frozen-lockfile
 
       - name: Lint
