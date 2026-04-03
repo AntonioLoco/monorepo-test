@@ -33,8 +33,11 @@ jobs:
         run: |
           find . -type f \( -name '.env' -o -name '.env.*' \) -delete
           export NEXT_PUBLIC_RELEASE_DATE="$(date -u +'%FT%TZ')"
-          pnpm run build
+          pnpm dlx vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+          pnpm dlx vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
         env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           DATABASE_URI: ${{ secrets.DATABASE_URI }}
 
       - name: Run migrations
@@ -43,8 +46,7 @@ jobs:
           DATABASE_URI: ${{ secrets.DATABASE_URI }}
 
       - name: Deploy to Vercel
-        run: |
-          pnpm dlx vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: pnpm dlx vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
