@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { db } from '@/lib/kysely';
 
 import styles from './page.module.css';
+
 export default async function Home() {
   const users = await getUsers(db);
 

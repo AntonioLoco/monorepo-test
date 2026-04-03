@@ -4,7 +4,7 @@ import type { DB } from '@anabolix/db';
 import { CamelCasePlugin, Kysely, PostgresDialect } from 'kysely';
 import { Pool } from 'pg';
 
-const { DATABASE_URI, NODE_ENV } = process.env;
+const { DATABASE_URI } = process.env;
 
 if (!DATABASE_URI) {
   throw new Error('Database environment variables are not fully set.');
@@ -25,7 +25,6 @@ globalForDb.db =
       pool: new Pool({
         connectionString: DATABASE_URI,
         max: 10,
-        ssl: NODE_ENV !== 'development',
       }),
     }),
     plugins: [new CamelCasePlugin()],
