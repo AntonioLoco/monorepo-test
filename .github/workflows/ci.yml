@@ -31,7 +31,11 @@ jobs:
 
       - name: Build
         run: |
+          find . -type f \( -name '.env' -o -name '.env.*' \) -delete
+          export NEXT_PUBLIC_RELEASE_DATE="$(date -u +'%FT%TZ')"
           pnpm run build
+        env:
+          DATABASE_URI: ${{ secrets.DATABASE_URI }}
 
       - name: Run migrations
         run: pnpm --filter @anabolix/db run db:migrate:latest
