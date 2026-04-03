@@ -1,0 +1,51 @@
+{
+  "folders": [
+    {
+      "path": ".",
+      "name": "Root",
+    },
+    {
+      "path": "apps/frontend",
+      "name": "Frontend",
+    },
+    {
+      "path": "packages/types",
+      "name": "Types",
+    },
+    {
+      "path": "apps/db",
+      "name": "DB",
+    },
+  ],
+  "settings": {
+    "cSpell.words": [
+      "anabolix"
+    ],
+    "prettier.enable": false,
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.oxc": "never",
+      "source.addMissingImports.ts": "always",
+      "source.organizeImports": "always",
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "oxc.oxc-vscode",
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "oxc.oxc-vscode",
+    },
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "oxc.oxc-vscode",
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "oxc.oxc-vscode",
+    },
+  },
+  "extensions": {
+    "recommendations": [
+      "oxc.oxc-vscode"
+    ],
+  },
+}

@@ -1,0 +1,50 @@
+{
+  "name": "@anabolix/types",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "format": "oxfmt --write",
+    "format:check": "oxfmt --check",
+    "lint": "oxlint",
+    "lint:ci": "pnpm run lint -- --deny-warnings",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit",
+    "check": "concurrently --kill-others-on-fail \"pnpm:format:check\" \"pnpm:typecheck\" \"pnpm:lint\"",
+    "check:ci": "concurrently --kill-others-on-fail \"pnpm:format:check\" \"pnpm:typecheck\" \"pnpm:lint:ci\"",
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsc -p tsconfig.build.json --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.18.3",
+  "dependencies": {
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "oxfmt": "catalog:",
+    "oxlint": "catalog:",
+    "oxlint-tsgolint": "catalog:",
+    "concurrently": "catalog:",
+    "typescript": "^5.9.3"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./schemas": {
+      "types": "./dist/schemas.d.ts",
+      "default": "./dist/schemas.js"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "default": "./dist/types.js"
+    }
+  }
+}

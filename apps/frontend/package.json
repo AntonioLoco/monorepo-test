@@ -1,0 +1,38 @@
+{
+  "name": "@anabolix/frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "format": "oxfmt --write",
+    "format:check": "oxfmt --check",
+    "lint": "oxlint",
+    "lint:ci": "pnpm run lint -- --deny-warnings",
+    "typecheck": "tsc --noEmit",
+    "check": "concurrently --kill-others-on-fail \"pnpm:format:check\" \"pnpm:typecheck\" \"pnpm:lint\"",
+    "check:ci": "concurrently --kill-others-on-fail \"pnpm:format:check\" \"pnpm:typecheck\" \"pnpm:lint:ci\""
+  },
+  "dependencies": {
+    "@anabolix/db": "workspace:*",
+    "@anabolix/types": "workspace:*",
+    "kysely": "catalog:",
+    "next": "16.2.2",
+    "pg": "catalog:",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/pg": "catalog:",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "concurrently": "catalog:",
+    "oxfmt": "catalog:",
+    "oxlint": "catalog:",
+    "oxlint-tsgolint": "catalog:",
+    "typescript": "^5"
+  }
+}

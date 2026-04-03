@@ -1,0 +1,84 @@
+{
+  "name": "@anabolix/db",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "format": "oxfmt --write",
+    "format:check": "oxfmt --check",
+    "lint": "oxlint",
+    "lint:ci": "pnpm run lint -- --deny-warnings",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit",
+    "check": "concurrently --kill-others-on-fail \"pnpm:format:check\" \"pnpm:typecheck\" \"pnpm:lint\"",
+    "check:ci": "concurrently --kill-others-on-fail \"pnpm:format:check\" \"pnpm:typecheck\" \"pnpm:lint:ci\"",
+    "db:wait": "ts-node scripts/wait-db.ts",
+    "db:codegen": "kysely-codegen && pnpm run format -- src/db.types.ts",
+    "db:migrate:latest": "kysely --no-outdated-check migrate:latest",
+    "db:migrate:down": "kysely --no-outdated-check migrate:down",
+    "db:migrate:rollback": "kysely --environment=local --no-outdated-check migrate:rollback --all",
+    "db:migrate:new": "kysely --no-outdated-check migrate:make -x='ts'",
+    "db:seed:make": "kysely --no-outdated-check seed:make -x='ts'",
+    "db:seed:run": "kysely --no-outdated-check seed:run",
+    "db:reset": "pnpm run db:migrate:rollback && pnpm run db:migrate:latest && pnpm run db:seed:run",
+    "db:start": "ts-node scripts/start-db.ts",
+    "dev": "concurrently --kill-others-on-fail  \"pnpm run db:start > /dev/null 2>&1\" \"pnpm run db:wait && pnpm run db:reset && pnpm run db:codegen && tsc -p tsconfig.build.json --watch\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.30.0",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "kysely": "catalog:",
+    "pg": "catalog:",
+    "@anabolix/types": "workspace:*"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^10.4.0",
+    "@types/node": "^25.5.0",
+    "@types/pg": "catalog:",
+    "concurrently": "catalog:",
+    "dotenv": "^17.4.0",
+    "dotenv-expand": "^12.0.3",
+    "kysely-codegen": "^0.20.0",
+    "kysely-ctl": "^0.20.0",
+    "oxfmt": "catalog:",
+    "oxlint": "catalog:",
+    "oxlint-tsgolint": "catalog:",
+    "pg-connection-string": "^2.12.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "exports": {
+    "./db.types": {
+      "types": "./dist/db.types.d.ts",
+      "default": "./dist/db.types.js"
+    },
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./queries": {
+      "types": "./dist/queries.d.ts",
+      "default": "./dist/queries.js"
+    },
+    "./queries/user": {
+      "types": "./dist/user/query.d.ts",
+      "default": "./dist/user/query.js"
+    },
+    "./mutations": {
+      "types": "./dist/mutations.d.ts",
+      "default": "./dist/mutations.js"
+    },
+    "./mutations/user": {
+      "types": "./dist/user/mutation.d.ts",
+      "default": "./dist/user/mutation.js"
+    }
+  }
+}

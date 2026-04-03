@@ -1,0 +1,24 @@
+{
+  "name": "anabolix",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "pnpm run -r --if-present --parallel build",
+    "dev": "pnpm -r --parallel run --filter @anabolix/* dev",
+    "lint": "pnpm run -r --if-present --parallel lint",
+    "format:check": "pnpm run -r --if-present --parallel format:check",
+    "format": "pnpm run -r --if-present --parallel format",
+    "check": "pnpm run -r --if-present --parallel check",
+    "check:ci": "pnpm run -r --if-present --parallel check:ci"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@10.18.3",
+  "devDependencies": {
+    "concurrently": "catalog:",
+    "oxfmt": "catalog:",
+    "oxlint": "catalog:",
+    "oxlint-tsgolint": "catalog:"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "import", "unicorn", "promise", "react"],
+  "categories": {
+    "correctness": "error",
+    "perf": "warn",
+    "style": "warn",
+    "pedantic": "warn"
+  },
+  "ignorePatterns": [
+    "node_modules/**",
+    "dist/**",
+    "public/**",
+    "tsconfig.json"
+  ],
+  "settings": {
+    "typescript": {
+      "tsconfigRootDir": "."
+    }
+  },
+  "rules": {
+    "no-misused-promises": "off",
+    "react/jsx-no-useless-fragment": "off",
+    "react/jsx-max-depth": "off",
+    "react/jsx-props-no-spreading": "off",
+    "unicorn/no-array-reduce": "off",
+    "typescript/no-floating-promises": "off",
+    "promise/prefer-await-to-then": "off",
+    "unicorn/prefer-module": "off",
+    "no-console": [
+      "warn",
+      {
+        "allow": ["warn", "error", "info"]
+      }
+    ],
+    "no-floating-promises": "warn",
+    "capitalized-comments": "off",
+    "no-negated-condition": "off",
+    "no-warning-comments": "off",
+    "no-magic-numbers": "off",
+    "curly": "off",
+    "new-cap": "off",
+    "no-named-export": "off",
+    "import/prefer-default-export": "off",
+    "sort-keys": "off",
+    "typescript/parameter-properties": "off",
+    "unicorn/prefer-top-level-await": "off",
+    "jest/require-hook": "off",
+    "no-void": "error",
+    "eqeqeq": "off",
+    "no-unused-vars": "error",
+    "eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "typescript/no-explicit-any": "warn",
+    "sort-imports": "off",
+    "typescript/consistent-type-imports": [
+      "error",
+      {
+        "disallowTypeAnnotations": true
+      }
+    ],
+    "max-statements": "off",
+    "no-ternary": "off",
+    "typescript/strict-boolean-expressions": "off",
+    "import/group-exports": "off",
+    "import/consistent-type-specifier-style": "off",
+    "id-length": "off",
+    "no-null": "off",
+    "import/no-namespace": "off",
+    "max-lines-per-function": "off",
+    "import/no-anonymous-default-export": "off",
+    "import/exports-last": "off",
+    "max-params": "off",
+    "import/max-dependencies": "off"
+  }
+}
