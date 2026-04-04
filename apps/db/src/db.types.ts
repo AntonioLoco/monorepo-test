@@ -18,89 +18,89 @@ export interface Permissions {
   global: Generated<boolean>;
   key: string;
   order: Generated<number>;
-  parent_permission_key: string | null;
+  parentPermissionKey: string | null;
 }
 
 export interface RefreshTokens {
-  expires_at: Timestamp;
+  expiresAt: Timestamp;
   id: string;
-  user_id: number;
+  userId: number;
 }
 
 export interface Roles {
-  deleted_at: Timestamp | null;
+  deletedAt: Timestamp | null;
   description: string;
   id: Generated<number>;
   slug: string;
 }
 
 export interface RolesPermissions {
-  permission_key: string;
-  role_id: number;
+  permissionKey: string;
+  roleId: number;
 }
 
 export interface Settings {
   key: string;
-  updated_at: Generated<Timestamp>;
+  updatedAt: Generated<Timestamp>;
   value: string;
 }
 
 export interface Sites {
-  deleted_at: Timestamp | null;
+  deletedAt: Timestamp | null;
   id: Generated<number>;
   name: string;
 }
 
 export interface Skills {
-  deleted_at: Timestamp | null;
+  deletedAt: Timestamp | null;
   id: Generated<number>;
   name: string;
 }
 
 export interface Users {
-  activity_end_delivery: NotificationDelivery;
-  activity_expiration_delivery: NotificationDelivery;
-  activity_start_delivery: NotificationDelivery;
-  created_at: Generated<Timestamp>;
-  deleted_at: Timestamp | null;
+  activityEndDelivery: NotificationDelivery;
+  activityExpirationDelivery: NotificationDelivery;
+  activityStartDelivery: NotificationDelivery;
+  createdAt: Generated<Timestamp>;
+  deletedAt: Timestamp | null;
   email: string;
-  first_name: string;
+  firstName: string;
   id: Generated<number>;
-  last_name: string;
+  lastName: string;
   nickname: string;
-  nomination_end_delivery: NotificationDelivery;
-  nomination_expiration_delivery: NotificationDelivery;
-  nomination_start_delivery: NotificationDelivery;
+  nominationEndDelivery: NotificationDelivery;
+  nominationExpirationDelivery: NotificationDelivery;
+  nominationStartDelivery: NotificationDelivery;
   password: string;
-  phone_number: string | null;
-  security_end_delivery: NotificationDelivery;
-  security_expiration_delivery: NotificationDelivery;
-  security_start_delivery: NotificationDelivery;
-  training_end_delivery: NotificationDelivery;
-  training_expiration_delivery: NotificationDelivery;
-  training_start_delivery: NotificationDelivery;
-  updated_at: Timestamp | null;
+  phoneNumber: string | null;
+  securityEndDelivery: NotificationDelivery;
+  securityExpirationDelivery: NotificationDelivery;
+  securityStartDelivery: NotificationDelivery;
+  trainingEndDelivery: NotificationDelivery;
+  trainingExpirationDelivery: NotificationDelivery;
+  trainingStartDelivery: NotificationDelivery;
+  updatedAt: Timestamp | null;
 }
 
 export interface UsersPermissions {
-  permission_key: string;
-  user_id: number;
+  permissionKey: string;
+  userId: number;
 }
 
 export interface UsersRoles {
-  role_id: number;
-  user_id: number;
+  roleId: number;
+  userId: number;
 }
 
 export interface DB {
   permissions: Permissions;
-  refresh_tokens: RefreshTokens;
+  refreshTokens: RefreshTokens;
   roles: Roles;
-  roles_permissions: RolesPermissions;
+  rolesPermissions: RolesPermissions;
   settings: Settings;
   sites: Sites;
   skills: Skills;
   users: Users;
-  users_permissions: UsersPermissions;
-  users_roles: UsersRoles;
+  usersPermissions: UsersPermissions;
+  usersRoles: UsersRoles;
 }

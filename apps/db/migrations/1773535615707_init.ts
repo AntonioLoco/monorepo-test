@@ -32,7 +32,8 @@ for (const key of PERMISSION_CATEGORY) {
   });
 }
 
-export const up = async (db: Kysely<DB>): Promise<void> => {
+// oxlint-disable-next-line typescript/no-explicit-any
+export const up = async (db: Kysely<any>): Promise<void> => {
   await sql`CREATE EXTENSION IF NOT EXISTS "citext";`.execute(db);
   await sql`CREATE EXTENSION IF NOT EXISTS "unaccent";`.execute(db);
 

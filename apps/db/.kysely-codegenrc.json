@@ -2,5 +2,6 @@
   "dialect": "postgres",
   "url": "env(DATABASE_URI)",
   "outFile": "src/db.types.ts",
-  "dateParser": "string"
+  "dateParser": "string",
+  "camelCase": true
 }

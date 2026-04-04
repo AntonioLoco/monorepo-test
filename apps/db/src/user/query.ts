@@ -8,12 +8,12 @@ const getUserById = async (db: Kysely<DB>, id: number) => {
     .where('id', '=', id)
     .select([
       'id',
-      'first_name',
-      'last_name',
+      'firstName',
+      'lastName',
       'email',
-      'phone_number',
-      'created_at',
-      'updated_at',
+      'phoneNumber',
+      'createdAt',
+      'updatedAt',
     ])
     .executeTakeFirst();
 };
@@ -23,12 +23,12 @@ const getUsers = async (db: Kysely<DB>) => {
     .selectFrom('users')
     .select([
       'id',
-      'first_name',
-      'last_name',
+      'firstName',
+      'lastName',
       'email',
-      'phone_number',
-      'created_at',
-      'updated_at',
+      'phoneNumber',
+      'createdAt',
+      'updatedAt',
     ])
     .execute();
 };
