@@ -1,22 +1,22 @@
-import { getUsers } from '@anabolix/db/queries/user';
+import { getUserById } from '@anabolix/db/queries/user';
 import Image from 'next/image';
 
-import { db } from '@/lib/kysely';
+import Test from '@/components/test';
+import executeQuery from '@/db/execute-query';
 
 import styles from './page.module.css';
 
 export default async function Home() {
-  const users = await getUsers(db);
+  const user = await executeQuery(getUserById)(1);
 
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        {users.map((user) => (
-          <div key={user.id}>
-            <h2>{user.first_name}</h2>
-            <p>{user.email}</p>
-          </div>
-        ))}
+        <h2>
+          {user?.lastName} {user?.firstName}
+        </h2>
+
+        <Test />
         <Image
           className={styles.logo}
           src="/next.svg"
